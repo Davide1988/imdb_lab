@@ -25,4 +25,14 @@ class Star
     sql = "DELETE FROM stars"
     SqlRunner.run(sql)
   end
+
+  def movies()
+    sql = "SELECT movies.* FROM
+    movies INNER JOIN casting
+    ON movies.id = casting.movie_id
+    WHERE casting.star_id = $1"
+    values = [@id]
+    movie_hashes = SqlRunner.run(sql, values)
+    return movie_hashes.map {|movie| Movie.new(movie)}
+  end
 end
