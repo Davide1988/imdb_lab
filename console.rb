@@ -19,3 +19,13 @@ movie1.save
 movie2.save
 movie3.save
 movie4.save
+
+casting1 = Casting.new({'movie_id' => movie1.id, 'star_id' => star1.id, 'fee' => 10})
+casting1.save
+casting2 = Casting.new({'movie_id' => movie2.id, 'star_id' => star1.id, 'fee' => 3})
+casting2.save
+casting3 = Casting.new({'movie_id' => movie2.id, 'star_id' => star2.id, 'fee' => 4})
+casting3.save
+guardians_stars = movie1.stars
+binding.pry
+nil
